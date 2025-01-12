@@ -24,39 +24,6 @@
 			"        $1",
 			"    }",
 			"",
-			"    // Implements quicksort algorithm",
-			"    private static void quicksort(int[] nums, int begin, int end) {",
-			"        if (begin < end) {",
-			"            // Partition the array and get the pivot index",
-			"            int pivot = partition(nums, begin, end);",
-			"            // Recursively sort elements before and after the pivot",
-			"            quicksort(nums, begin, pivot - 1);",
-			"            quicksort(nums, pivot + 1, end);",
-			"        }",
-			"    }",
-			"",
-			"    // Partitions the array for quicksort",
-			"    private static int partition(int[] nums, int left, int right) {",
-			"        int pivot = nums[right]; // Choose the rightmost element as the pivot",
-			"        int i = left - 1; // Pointer for the smaller element",
-			"        for (int j = left; j < right; j++) {",
-			"            // If the current element is smaller than or equal to the pivot",
-			"            if (nums[j] <= pivot) {",
-			"                i++;",
-			"                swap(nums, i, j); // Swap the elements",
-			"            }",
-			"        }",
-			"        swap(nums, i + 1, right); // Place the pivot in its correct position",
-			"        return i + 1; // Return the index of the pivot",
-			"    }",
-			"",
-			"    // Swaps two elements in the array",
-			"    private static void swap(int[] nums, int x, int y) {",
-			"        int temp = nums[x];",
-			"        nums[x] = nums[y];",
-			"        nums[y] = temp;",
-			"    }",
-			"",
 			"    // Utility class for fast input",
 			"    static class FastReader {",
 			"        BufferedReader br;",
@@ -91,7 +58,45 @@
 			"    }",
 			"}"
 		],
-		"description": "Basic template for competitive programming with quicksort."
+		"description": "Basic template for competitive programming."
+	},
+	"Quicksort Algorithm": {
+		"prefix": "quicksort",
+		"body": [
+			"// Implements quicksort algorithm",
+			"private static void quicksort(int[] nums, int begin, int end) {",
+			"    if (begin < end) {",
+			"        // Partition the array and get the pivot index",
+			"        int pivot = partition(nums, begin, end);",
+			"        // Recursively sort elements before and after the pivot",
+			"        quicksort(nums, begin, pivot - 1);",
+			"        quicksort(nums, pivot + 1, end);",
+			"    }",
+			"}",
+			"",
+			"// Partitions the array for quicksort",
+			"private static int partition(int[] nums, int left, int right) {",
+			"    int pivot = nums[right]; // Choose the rightmost element as the pivot",
+			"    int i = left - 1; // Pointer for the smaller element",
+			"    for (int j = left; j < right; j++) {",
+			"        // If the current element is smaller than or equal to the pivot",
+			"        if (nums[j] <= pivot) {",
+			"            i++;",
+			"            swap(nums, i, j); // Swap the elements",
+			"        }",
+			"    }",
+			"    swap(nums, i + 1, right); // Place the pivot in its correct position",
+			"    return i + 1; // Return the index of the pivot",
+			"}",
+			"",
+			"// Swaps two elements in the array",
+			"private static void swap(int[] nums, int x, int y) {",
+			"    int temp = nums[x];",
+			"    nums[x] = nums[y];",
+			"    nums[y] = temp;",
+			"}"
+		],
+		"description": "Quicksort implementation for integer arrays."
 	},
 	"Fast Reader": {
 		"prefix": "fastInput",
@@ -144,9 +149,9 @@
 		"prefix": "readIntArray",
 		"body": [
 			"int n = in.nextInt(); // Read the size of the array",
-			"int[] arr = new int[n]; // Initialize the array",
+			"int[] nums = new int[n]; // Initialize the array",
 			"for (int i = 0; i < n; i++) {",
-			"    arr[i] = in.nextInt(); // Read each element of the array",
+			"    nums[i] = in.nextInt(); // Read each element of the array",
 			"}"
 		],
 		"description": "Reads an array of integers."
@@ -161,5 +166,34 @@
 			"}"
 		],
 		"description": "Reads an array of strings."
+	},
+	"Read Matrix of Integers": {
+		"prefix": "readIntMatrix",
+		"body": [
+			"int rows = in.nextInt(); // Read the number of rows",
+			"int cols = in.nextInt(); // Read the number of columns",
+			"int[][] matrix = new int[rows][cols]; // Initialize the matrix",
+			"for (int i = 0; i < rows; i++) {",
+			"    for (int j = 0; j < cols; j++) {",
+			"        matrix[i][j] = in.nextInt(); // Read each element of the matrix",
+			"    }",
+			"}"
+		],
+		"description": "Reads a matrix of integers."
+	},
+	"Read Matrix of Characters": {
+		"prefix": "readCharMatrix",
+		"body": [
+			"int rows = in.nextInt(); // Read the number of rows",
+			"int cols = in.nextInt(); // Read the number of columns",
+			"char[][] matrix = new char[rows][cols]; // Initialize the matrix",
+			"for (int i = 0; i < rows; i++) {",
+			"    String line = in.next(); // Read each row as a string",
+			"    for (int j = 0; j < cols; j++) {",
+			"        matrix[i][j] = line.charAt(j); // Assign each character to the matrix",
+			"    }",
+			"}"
+		],
+		"description": "Reads a matrix of characters."
 	}
 }
